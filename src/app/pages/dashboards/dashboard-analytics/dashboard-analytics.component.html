@@ -8,14 +8,15 @@
 
 <div class="container p-gutter grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
 
-  <vex-widget-quick-value-center [change]="124.4" icon="mat:shopping_cart" iconClass="text-primary bg-primary/10" label="Orders"
-    value="67.4k"></vex-widget-quick-value-center>
+  <vex-widget-quick-value-center [change]="124.4" icon="mat:shopping_cart" 
+  iconClass="text-primary bg-primary/10" label="Orders"
+    value="{{productCount}}"></vex-widget-quick-value-center>
   <vex-widget-quick-value-center [change]="-23.7" icon="mat:new_releases" iconClass="text-orange bg-orange-light"
-   label="Release" value="96.2k"></vex-widget-quick-value-center>
+   label="Release" value="0"></vex-widget-quick-value-center>
   <vex-widget-quick-value-center [change]="23.2" icon="mat:card_giftcard" iconClass="text-deep-orange bg-deep-orange-light"
-   label="Products" value="6.92%"></vex-widget-quick-value-center>
+   label="Products" value="0"></vex-widget-quick-value-center>
   <vex-widget-quick-value-center [change]="34.5" icon="mat:all_inclusive" iconClass="text-teal bg-teal-light"
-    label="Inventory" value="6.92%"></vex-widget-quick-value-center>
+    label="Inventory" value="0"></vex-widget-quick-value-center>
 
 
   <!-- <vex-widget-assistant class="sm:col-span-2"></vex-widget-assistant>

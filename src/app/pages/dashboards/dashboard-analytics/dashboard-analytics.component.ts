@@ -53,6 +53,7 @@ export class DashboardAnalyticsComponent {
 
   customers: Customer[];
    products: any[]
+   productCount: number
 
    @ViewChild(MatPaginator) paginator!: MatPaginator;
    @ViewChild(MatSort) sort!: MatSort;
@@ -70,6 +71,8 @@ export class DashboardAnalyticsComponent {
     this.productService.getProducts().subscribe((res) => {
       this.products = res.data
       console.log(this.products)
+      this.productCount = res.data.length
+      console.log(res.data.length)
     })
    }
 

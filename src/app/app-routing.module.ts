@@ -53,6 +53,10 @@ const routes: VexRoutes = [
             }
           },
           {
+            path: 'details/:id',
+            loadChildren: () => import('./pages/user/product-details/product-details.module').then(m => m.ProductDetailsModule)
+          },
+          {
             path: 'customer-list',
             loadChildren: () => import('./admin/customers-list/customers-list.module').then(m => m.CustomerListModule),
             data: {
@@ -73,6 +77,7 @@ const routes: VexRoutes = [
     loadChildren: () => import('./admin/product-list/product-list.module').then(m => m.ProductListModule),
 
   },
+
       {
         path: 'apps',
         children: [
