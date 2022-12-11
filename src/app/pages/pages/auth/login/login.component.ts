@@ -24,6 +24,8 @@ import { AuthService } from "src/app/services/auth.service";
 export class LoginComponent implements OnInit {
   form: UntypedFormGroup;
   userName: string;
+  lastName: string;
+  comepleteName: string;
   password: any;
   loading: boolean = false;
   inputType = "password";
@@ -51,11 +53,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  send() {
+  send() : void {
     this.userName = this.form.get("email").value;
     this.password = this.form.get("password").value;
     this.loading = true;
-    if (this.userName && this.password) {
+    if (this.userName !== "" && this.password !== "") {
+
+      this.authService.getUser(this.userName , this.password).subscribe((user) => {
+        console.log(user.data)
+      })
       this.authService
         .getUser(this.userName, this.password)
         .subscribe((res) => {
@@ -72,10 +78,6 @@ export class LoginComponent implements OnInit {
           }
         });
     }
-    // this.router.navigate(['/']);
-    // this.snackbar.open('Lucky you! Looks like you didn\'t need a password or email address! For a real application we provide validators to prevent this. ;)', 'LOL THANKS', {
-    //   duration: 10000
-    // });
   }
 
   redirect():void {

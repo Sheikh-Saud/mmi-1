@@ -6,11 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+   body: object;
+  constructor(private http: HttpClient,) {
 
-  constructor(private http: HttpClient,) {}
-
-  getUser(username: string , password: any) : Observable<any> {
-    return this.http.get<any>(`${env.baseUrl}/Customers/Login?username=${username}&password=${password}`)
   }
 
+  getUser(username: string , password: any) : Observable<any> {
+        
+     return this.http.post(`${env.baseUrl}/Customers/Login`,{
+      username,
+      password
+     })
+  }
 }
