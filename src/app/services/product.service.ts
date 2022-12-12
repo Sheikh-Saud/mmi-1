@@ -13,4 +13,8 @@ export class ProductService {
       this.userId = localStorage.getItem("UserId")
       return this.http.get<any>(`${env.baseUrl}/Customers/RelatedProducts?userId=${this.userId}`)    
   }
+  getSingleProduct(idProduct): Observable<any> {
+    this.userId = localStorage.getItem("UserId")
+    return this.http.get<any>(`${env.baseUrl}/Products/GetProduct?userId=${this.userId}&productId=${idProduct}`)
+  }
 }

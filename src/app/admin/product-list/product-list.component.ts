@@ -8,7 +8,7 @@ import { trackById } from '../../../@vex/utils/track-by';
 import { stagger40ms } from '../../../@vex/animations/stagger.animation';
 import { fadeInUp400ms } from '../../../@vex/animations/fade-in-up.animation';
 import { scaleFadeIn400ms } from '../../../@vex/animations/scale-fade-in.animation';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ProductService } from '../../services/product.service';
 @Component({
@@ -57,7 +57,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private route: ActivatedRoute,
-              private productService: ProductService
+              private productService: ProductService,
+              private router: Router
               ) { }
 
   ngOnInit() {
@@ -69,6 +70,10 @@ export class ProductListComponent implements OnInit {
       }
     })
   }
-
+  
+  productDetails(id) {
+    console.log(id)
+    this.router.navigate([`details/${id}`])
+  }
 }
 

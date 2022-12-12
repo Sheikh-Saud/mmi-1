@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="bg-app-bar p-2 flex items-center justify-around">
-                    <button color="primary" routerLink="/pages/products" mat-stroked-button type="button">View Product</button>  
+                    <button color="primary" (click)="productDetails(product.fieldData.idProduct)" mat-stroked-button type="button">View Product</button>  
                 </div>
             </div>
         </div>

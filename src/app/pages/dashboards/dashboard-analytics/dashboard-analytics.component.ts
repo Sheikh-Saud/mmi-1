@@ -22,6 +22,7 @@ import { AfterViewInit} from '@angular/core';
 
 import { MatTable } from '@angular/material/table';
 import { DataTableDataSource, DataTableItem } from '../../../data-table/data-table-datasource';
+import { Router } from '@angular/router';
 @Component({
   selector: 'vex-dashboard-analytics',
   templateUrl: './dashboard-analytics.component.html',
@@ -63,7 +64,7 @@ export class DashboardAnalyticsComponent {
    /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
    displayedColumns = ['id', 'name'];
  
-   constructor(private productService: ProductService) {
+   constructor(private productService: ProductService,private router: Router) {
      this.dataSource = new DataTableDataSource();
    }
  
@@ -78,6 +79,7 @@ export class DashboardAnalyticsComponent {
 
    viewProduct(id){
     console.log(id)
+    this.router.navigate([`details/${id}`])
    }
  
 

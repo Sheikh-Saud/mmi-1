@@ -22,6 +22,7 @@ const routes: VexRoutes = [
     loadChildren: () => import('./pages/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
   },
 
+
   {
     path: '',
     component: CustomLayoutComponent,
@@ -30,6 +31,10 @@ const routes: VexRoutes = [
         path: 'dashboards/analytics',
         redirectTo: 'dashboards/analytics',
         pathMatch: 'full'
+      },
+      {
+        path: 'details/:id',
+        loadChildren: () => import('./pages/user/product-details/product-details.module').then(m => m.ProductDetailsModule)
       },
       {
         path: 'dashboards/analytics',
@@ -52,10 +57,7 @@ const routes: VexRoutes = [
               toolbarShadowEnabled: true
             }
           },
-          {
-            path: 'details/:id',
-            loadChildren: () => import('./pages/user/product-details/product-details.module').then(m => m.ProductDetailsModule)
-          },
+
           {
             path: 'customer-list',
             loadChildren: () => import('./admin/customers-list/customers-list.module').then(m => m.CustomerListModule),
