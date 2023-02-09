@@ -15,6 +15,7 @@ import { Customer } from '../../../apps/aio-table/interfaces/customer.model';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
 import { stagger40ms } from 'src/@vex/animations/stagger.animation';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -77,11 +78,11 @@ export class UserReleaseComponent  implements OnInit {
   searchCtrl = new UntypedFormControl();
 
   labels = aioTableLabels;
-
+   shipments = []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private dialog: MatDialog, private cd: ChangeDetectorRef) {
+  constructor(private dialog: MatDialog, private cd: ChangeDetectorRef,private pr:ProductService,private cdr: ChangeDetectorRef) {
   }
 
   get visibleColumns() {
@@ -97,21 +98,20 @@ export class UserReleaseComponent  implements OnInit {
   }
 
   ngOnInit() {
+    this.pr.getShipment().subscribe((res) => {
+      this.shipments = res.data;
+      console.log(this.shipments)
+      this.cdr.markForCheck();
+    })
     this.getData().subscribe(customers => {
       this.subject$.next(customers);
     });
 
     this.dataSource = new MatTableDataSource();
 
-    this.data$.pipe(
-      filter<Customer[]>(Boolean)
-    ).subscribe(customers => {
-      this.customers = customers;
-      this.dataSource.data = customers;
-    });
+    this.dataSource.data = this.shipments
 
     this.searchCtrl.valueChanges.pipe(
-      untilDestroyed(this)
     ).subscribe(value => this.onFilterChange(value));
   }
 

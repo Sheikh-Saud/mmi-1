@@ -17,4 +17,8 @@ export class ProductService {
     this.userId = localStorage.getItem("UserId")
     return this.http.get<any>(`${env.baseUrl}/Products/GetProduct?userId=${this.userId}&productId=${idProduct}`)
   }
+  getShipment(){
+    this.userId = localStorage.getItem("UserId")
+    return this.http.get<any>(`${env.baseUrl}/Customers/Shipping?userId=${this.userId}`)
+  }
 }

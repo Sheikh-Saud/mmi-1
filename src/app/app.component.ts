@@ -363,7 +363,7 @@ export class AppComponent {
       //     },
           {
             type: 'link',
-            label: 'Release',
+            label: 'Shipment',
             icon: 'mat:new_releases',
             route: '/pages/release'
           },
