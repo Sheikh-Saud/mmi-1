@@ -38,6 +38,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -51,7 +54,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     WidgetQuickValueCenterModule,
     WidgetQuickValueStartModule,
     WidgetLargeGoalChartModule,
-
+    MatTreeModule,
     WidgetAssistantModule,
     WidgetLargeChartModule,
     WidgetTableModule,
@@ -59,7 +62,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BreadcrumbsModule,
     MatButtonModule,
     PageLayoutModule,
-
+    MatBadgeModule,
     AioTableRoutingModule,
     PageLayoutModule,
     BreadcrumbsModule,
@@ -71,7 +74,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-
+    MatListModule,
     FormsModule,
     MatTooltipModule,
     ReactiveFormsModule,

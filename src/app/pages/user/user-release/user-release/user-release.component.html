@@ -18,66 +18,66 @@
               <span @fadeInRight class="block">Shipments</span>
           </h1>
 
-          <div class="flex items-center display-bar">
-
-              <nav class="vex-tabs border-0 flex-auto" mat-tab-nav-bar>
-                  <div class="bg-foreground rounded-full border px-4 max-w-[300px] flex-auto flex items-center border border-gray-300">
-                      <mat-icon class="icon-sm text-secondary" svgIcon="mat:search"></mat-icon>
-                      <input
-                             class="px-4 py-2 border-0 outline-none w-full bg-transparent"
-                             placeholder="Search..."
-                             type="search">
-                    </div>
-              </nav>
-
-              <button class="ltr:ml-1 rtl:mr-1 flex-none sm:hidden" color="primary" mat-mini-fab
-                  matTooltip="Add Contact" type="button">
-                  <mat-icon svgIcon="mat:person_add"></mat-icon>
-              </button>
-              <button class="ltr:ml-4 rtl:mr-4 flex-none hidden sm:inline-block" color="primary" mat-flat-button
-                  type="button">
-                  <mat-icon class="ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1 icon-sm" svgIcon="mat:add"></mat-icon>
-                  <span>Assign Products</span>
-              </button>
-              <button class="ltr:ml-4 rtl:mr-4 flex-none hidden sm:inline-block" disable color="primary" mat-flat-button
-                  type="button">
-                  <mat-icon class="ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1 icon-sm" svgIcon="mat:add"></mat-icon>
-                  <span>Add Product</span>
-              </button>
-          </div>
       </div>
   </div>
 
   <div @stagger class="overflow-y-auto flex-auto">
-      <div class="p-gutter grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 container">
-          <div class="card overflow-hidden" *ngFor="let item of shipments">
+    <div class="p-gutter grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 container">
+        <div class="card overflow-hidden" *ngFor="let item of shipments">
               <div class="p-4 text-center hover:bg-hover trans-ease-out cursor-pointer relative" matRipple>
 
-                  <h2 class="title mb-1 mt-3">{{item.fieldData.customerC}}</h2>
-                  <div class="body-2 text-secondary flex items-center justify-center">
-                      <mat-icon class="ltr:mr-1 rtl:ml-1 icon-xs" svgIcon="mat:label"></mat-icon>
-                      <span>{{item.fieldData.shippingNumber}}</span>
+                  <h2 class="title mb-1 mt-3">{{item.customer_c}}</h2>
+                  <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                      <span>Shipping Number: </span>
+                      <span class="text-gray-900"> {{item.shipping_number}}</span>
                   </div>
 
-                  <div class="body-2 text-secondary flex items-center justify-center">
-                      <mat-icon class="ltr:mr-1 rtl:ml-1 icon-xs" svgIcon="mat:category"></mat-icon>
-                      <span>{{item.fieldData.shiptoCompany}}</span>
+                  <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                      <span>Full name: </span>
+                      <span class="text-gray-900">{{item.contact_fullname}}</span>
                   </div>
-                  <div class="body-2 text-secondary flex items-center justify-center">
-                    <mat-icon class="ltr:mr-1 rtl:ml-1 icon-xs" svgIcon="mat:category"></mat-icon>
-                    <span>{{item.fieldData.shiptoAddress1}}</span>
+                  <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>First name: </span>
+                    <span class="text-gray-900">{{item.shipto_firstname}}</span>
                 </div>
-                <div class="body-2 text-secondary flex items-center justify-center">
-                  <mat-icon class="ltr:mr-1 rtl:ml-1 icon-xs" svgIcon="mat:category"></mat-icon>
-                  <span>{{item.fieldData.shiptoCity}}</span>
-              </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Last name: </span>
+                    <span class="text-gray-900">{{item.shipto_lastname}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Address One </span>
+                    <span class="text-gray-900">{{item.shipto_address1}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Ship to city: </span>
+                    <span class="text-gray-900">{{item.shipto_city}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Ship to state: </span>
+                    <span class="text-gray-900">{{item.shipto_state}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Ship to code: </span>
+                    <span class="text-gray-900">{{item.shipto_code}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <span>Ship to phone: </span>
+                    <span class="text-gray-900">{{item.shipto_phone}}</span>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center flex-col">
+                    <h1 class="text-gray-900 text-1xl mt-2 font-bold">Product SKUs </h1>
+                </div>
+                <div class="body-2 text-secondary flex items-center justify-center" 
+                *ngFor="let sku of item.products_Shipped">
+                  <button mat-button color="primary" class="bg-gray-100 mt-2"
+                  matBadge="{{sku.unitsShipped}}" matBadgePosition="after" matBadgeColor="primary"
+                  >{{sku.productSku}}</button>
+                </div>
 
                
               </div>
 
-              <div class="bg-app-bar p-2 flex items-center justify-around">
-                  <button color="primary" mat-stroked-button type="button">View Shipment</button>  
-              </div>
+        
           </div>
       </div>
   </div>

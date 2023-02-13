@@ -16,6 +16,9 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@ang
 import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
 import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { ProductService } from 'src/app/services/product.service';
+import { fadeInRight400ms } from 'src/@vex/animations/fade-in-right.animation';
+import { scaleIn400ms } from 'src/@vex/animations/scale-in.animation';
+import { scaleFadeIn400ms } from 'src/@vex/animations/scale-fade-in.animation';
 
 
 @Component({
@@ -24,8 +27,11 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./user-release.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
+    scaleIn400ms,
+    fadeInRight400ms,
+    stagger40ms,
     fadeInUp400ms,
-    stagger40ms
+    scaleFadeIn400ms
   ],
   providers: [
     {
@@ -79,6 +85,7 @@ export class UserReleaseComponent  implements OnInit {
 
   labels = aioTableLabels;
    shipments = []
+   sku= []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -99,7 +106,8 @@ export class UserReleaseComponent  implements OnInit {
 
   ngOnInit() {
     this.pr.getShipment().subscribe((res) => {
-      this.shipments = res.data;
+      this.shipments = res.data.fieldData.fieldData
+      this.sku = res.data.fieldData.fieldData.products_Shipped
       console.log(this.shipments)
       this.cdr.markForCheck();
     })

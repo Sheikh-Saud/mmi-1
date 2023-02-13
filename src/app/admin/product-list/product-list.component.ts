@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Link } from '../../../@vex/interfaces/link.interface';
 import { scaleIn400ms } from '../../../@vex/animations/scale-in.animation';
 import { fadeInRight400ms } from '../../../@vex/animations/fade-in-right.animation';
@@ -58,7 +58,8 @@ export class ProductListComponent implements OnInit {
   constructor(private dialog: MatDialog,
               private route: ActivatedRoute,
               private productService: ProductService,
-              private router: Router
+              private router: Router,
+              private cd: ChangeDetectorRef
               ) { }
 
   ngOnInit() {
@@ -67,6 +68,7 @@ export class ProductListComponent implements OnInit {
         this.isLoading = false
         this.products = product.data
         console.log(this.products)
+        this.cd.markForCheck();
       }
     })
   }
