@@ -1,0 +1,126 @@
+<vex-secondary-toolbar current="Delivery Details">
+  <vex-breadcrumbs [crumbs]="['Dashboards', 'Delivery Details']" class="flex-auto"></vex-breadcrumbs>
+
+  <button class="ml-2" color="primary" mat-icon-button type="button">
+      <mat-icon svgIcon="mat:more_vert"></mat-icon>
+  </button>
+</vex-secondary-toolbar>
+
+<!-- Basic Details Start -->
+<div class="container p-gutter grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-4 pt-0">
+
+  <div class="mt-6 flex flex-col md:flex-row md:items-start">
+      <!-- Delivery Details -->
+      <div class="flex-auto">
+          <div class="card">
+              <div class="px-gutter py-4 border-b">
+                  <h2 class="title m-0">Delivery Details</h2>
+              </div>
+
+              <div class="px-gutter py-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="py-3 flex items-center">
+                    <div @scaleIn
+                        class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                        <mat-icon class="icon-sm" svgIcon="mat:person"></mat-icon>
+                    </div>
+
+                    <div @fadeInRight>
+                        <p class="m-0 body-1">Mr John</p>
+                        <p class="m-0 caption text-hint">Contact Person Name</p>
+                    </div>
+                  </div>
+
+                  <div class="py-3 flex items-center">
+                      <div @scaleIn
+                          class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                          <mat-icon class="icon-sm" svgIcon="mat:phone"></mat-icon>
+                      </div>
+
+                      <div @fadeInRight>
+                          <p class="m-0 body-1">+21 (988) 504-2559</p>
+                          <p class="m-0 caption text-hint">Contact Number</p>
+                      </div>
+                  </div>
+
+
+                  <div class="py-3 flex items-center">
+                      <div @scaleIn
+                          class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                          <mat-icon class="icon-sm" svgIcon="mat:email"></mat-icon>
+                      </div>
+
+                      <div @fadeInRight>
+                          <p class="m-0 body-1">demo@gmail.com</p>
+                          <p class="m-0 caption text-hint">Email</p>
+                      </div>
+                  </div>
+
+                  <div class="py-3 flex items-center">
+                      <div @scaleIn
+                          class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                          <mat-icon class="icon-sm" svgIcon="mat:business"></mat-icon>
+                      </div>
+
+                      <div @fadeInRight>
+                          <p class="m-0 body-1">Amazon</p>
+                          <p class="m-0 caption text-hint">Company</p>
+                      </div>
+                  </div>
+
+                  <div class="py-3 flex items-center">
+                    <div @scaleIn
+                        class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                        <mat-icon class="icon-sm" svgIcon="mat:location_city"></mat-icon>
+                    </div>
+
+                    <div @fadeInRight>
+                        <p class="m-0 body-1">Amazon</p>
+                        <p class="m-0 caption text-hint">City and State</p>
+                    </div>
+                </div>
+
+                <div class="py-3 flex items-center">
+                  <div @scaleIn
+                      class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                      <mat-icon class="icon-sm" svgIcon="mat:contact_support"></mat-icon>
+                  </div>
+
+                  <div @fadeInRight>
+                      <p class="m-0 body-1">87392 00</p>
+                      <p class="m-0 caption text-hint">Zip Code</p>
+                  </div>
+              </div>
+
+                  <div class="py-3 flex items-center">
+                      <div @scaleIn
+                          class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                          <mat-icon class="icon-sm" svgIcon="mat:place"></mat-icon>
+                      </div>
+
+                      <div @fadeInRight>
+                          <p class="m-0 body-1">4455 Apple Lane, Ellisville USA</p>
+                          <p class="m-0 caption text-hint">Primary Address</p>
+                      </div>
+                  </div>
+
+                  <div class="py-3 flex items-center">
+                    <div @scaleIn
+                        class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                        <mat-icon class="icon-sm" svgIcon="mat:place"></mat-icon>
+                    </div>
+
+                    <div @fadeInRight>
+                        <p class="m-0 body-1">Address 02: 4455 Apple Lane, Ellisville USA</p>
+                        <p class="m-0 caption text-hint">Secondary Address</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+</div>
+<!-- Basic Details End -->
+
+
